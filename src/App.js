@@ -139,12 +139,6 @@ function App() {
             <button onClick={handleUpload} className="bg-slate-900 text-white p-2.5 rounded-xl hover:scale-105 active:scale-95 transition shadow-lg">
               <Upload size={20} />
             </button>
-            <button 
-            onClick={handleReset}
-            className="bg-rose-100 text-rose-600 px-4 py-2 rounded-xl hover:bg-rose-600 hover:text-white transition-all font-bold text-sm flex items-center gap-2"
->
-            <AlertTriangle size={16} /> Reset
-            </button>
           </div>
         </header>
 
@@ -163,7 +157,13 @@ function App() {
                <h3 className="font-bold text-slate-800 mb-6 flex items-center gap-2">
                  <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
                  Top 10 Level Stok Terakhir
-               </h3>              
+               </h3>
+               <button 
+            onClick={handleReset}
+            className="bg-rose-100 text-rose-600 px-4 py-2 rounded-xl hover:bg-rose-600 hover:text-white transition-all font-bold text-sm flex items-center gap-2"
+>
+            <AlertTriangle size={16} /> Reset
+            </button>              
                <div className="h-80 w-full">
                 <ResponsiveContainer width="100%" height="100%">
                   <BarChart data={filteredData.slice(0, 10)}>
