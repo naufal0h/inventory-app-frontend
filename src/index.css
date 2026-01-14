@@ -1,13 +1,18 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import "tailwindcss";
+
+/* Pastikan semua elemen dengan class border memiliki gaya solid */
+@layer base {
+  *, ::after, ::before {
+    border-style: solid;
+    border-color: #e2e8f0; /* Warna slate-200 */
+  }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Gaya khusus untuk tabel agar terlihat seperti Excel */
+table {
+  border-collapse: collapse;
+}
+
+th, td {
+  border-width: 1px;
 }
