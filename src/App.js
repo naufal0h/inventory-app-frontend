@@ -45,17 +45,22 @@ function App() {
     if (!file) return alert("Pilih file!");
     const formData = new FormData();
     formData.append('file', file);
+  
     try {
-      await axios.post('http://localhost:5000/api/upload', formData);
+      // PASTIKAN URL INI ADALAH URL BACKEND RENDER ANDA
+      await axios.post('https://inventory-app-backend-0yrb.onrender.com/api/upload', formData); 
       fetchData();
-      alert("Berhasil diunggah ke tab baru!");
-    } catch (err) { alert("Gagal!"); }
+      alert("Berhasil diunggah!");
+    } catch (err) {
+      console.error(err);
+      alert("Gagal upload! Cek koneksi ke server.");
+    }
   };
 
   const handleReset = async () => {
     if (window.confirm("Apakah Anda yakin ingin MENGHAPUS SEMUA DATA stok? Tindakan ini tidak bisa dibatalkan.")) {
       try {
-        await axios.delete('http://localhost:5000/api/reset');
+        await axios.delete('https://inventory-app-backend-0yrb.onrender.com/api/reset');
         alert("Database telah dibersihkan.");
         fetchData(); // Refresh tampilan agar kosong
       } catch (err) {
@@ -66,7 +71,7 @@ function App() {
   const deleteSpecificFile = async (namaFile) => {
     if (window.confirm(`Hapus seluruh data dari file ${namaFile}?`)) {
       try {
-        await axios.delete(`http://localhost:5000/api/barang/file/${encodeURIComponent(namaFile)}`);
+        await axios.delete(`https://inventory-app-backend-0yrb.onrender.com/api/barang/file/${encodeURIComponent(namaFile)}`);
         fetchData();
         alert("File berhasil dihapus dari sistem.");
       } catch (err) {
