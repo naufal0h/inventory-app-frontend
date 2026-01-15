@@ -177,6 +177,19 @@ function App() {
                   </BarChart>
                 </ResponsiveContainer>
                 {/* Ini adalah cara memanggilnya di dalam tampilan */}
+<FileTabTable 
+  data={data} 
+  activeTab={activeFileTab} 
+/>
+<div className="flex-1 p-8">
+  {/* ... bagian header, upload, dan tab ... */}
+  
+  <FileTabTable data={data} activeTab={activeFileTab} />
+
+  {/* TAMPILKAN REKAPAN SEMUA EXCEL DI SINI */}
+  <SummaryReport data={data} />
+</div>
+
 
                </div>
             </div>
